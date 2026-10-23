@@ -1,0 +1,77 @@
+{
+    "authors": [
+        {
+            "name": "ReallyMartin",
+            "role": "CREATOR"
+        }
+    ],
+    "description": "A quality-of-life mod that displays the length of a railway signal block: the distance back to the previous signal facing the same direction (or to the end of the track). It is shown in the tooltip while placing a signal and when hovering over an existing signal. At switches, the shortest and longest routes are shown as a range.<br><hr><br>Un mod de calidad de vida que muestra la longitud de un cantón ferroviario: la distancia hasta la señal anterior orientada en el mismo sentido (o hasta el final de la vía). Aparece en la descripción emergente al colocar una señal y al pasar el ratón por encima de una señal existente. En los desvíos, la ruta más corta y la más larga se muestran como un intervalo.<br><hr><br>Eine Komfort-Mod, die die Länge eines Blockabschnitts anzeigt: die Strecke zurück bis zum vorherigen Signal in derselben Fahrtrichtung (oder bis zum Gleisende). Die Länge erscheint im Tooltip, während du ein Signal platzierst oder mit der Maus über ein bestehendes Signal fährst. An Weichen werden die kürzeste und die längste Route als Bereich angezeigt.<br><hr><br>Удобный мод, который показывает длину блок-участка — расстояние до предыдущего светофора того же направления (или до конца пути). Длина отображается во всплывающей подсказке при установке светофора и при наведении курсора на уже установленный светофор. На стрелках кратчайший и самый длинный маршруты показываются в виде диапазона.<br><hr><br>폐색 구간의 길이를 표시해 주는 편의성 모드입니다. 같은 방향을 향한 이전 신호기까지(또는 선로 끝까지)의 거리를 보여 줍니다. 신호기를 설치할 때와 기존 신호기에 마우스를 올렸을 때 툴팁에 표시됩니다. 분기기가 있는 경우 가장 짧은 경로와 가장 긴 경로가 범위로 표시됩니다.<br><hr><br>Een handige mod die de lengte van een blok weergeeft: de afstand terug tot het vorige sein in dezelfde rijrichting (of tot het einde van het spoor). De lengte verschijnt in de tooltip tijdens het plaatsen van een sein en wanneer je met de muis over een bestaand sein beweegt. Bij wissels worden de kortste en de langste route als bereik weergegeven.<br><hr><br>Un mod de confort qui affiche la longueur d'un canton ferroviaire : la distance jusqu'au signal précédent orienté dans le même sens (ou jusqu'à la fin de la voie). Elle apparaît dans l'infobulle lors de la pose d'un signal et au survol d'un signal existant. Aux aiguillages, l'itinéraire le plus court et le plus long sont indiqués sous forme de plage.<br><hr><br>一款便捷模组，用于显示闭塞分区的长度，即到同方向上一架信号机（或轨道尽头）的距离。放置信号机时，以及将鼠标悬停在已有信号机上时，长度会显示在提示框中。遇到道岔时，会以范围形式显示最短和最长路线的长度。<br><hr><br>Um mod de qualidade de vida que mostra o comprimento de um bloco ferroviário: a distância até o sinal anterior voltado para o mesmo sentido (ou até o fim da linha). Ele aparece na dica de ferramenta ao posicionar um sinal e ao passar o mouse sobre um sinal existente. Nos AMVs, a rota mais curta e a mais longa são exibidas como um intervalo.<br><hr><br>Mod usprawniający rozgrywkę, który wyświetla długość odstępu blokowego: odległość do poprzedniego semafora skierowanego w tę samą stronę (lub do końca toru). Jest ona widoczna w podpowiedzi podczas stawiania semafora oraz po najechaniu kursorem na istniejący semafor. Na rozjazdach najkrótsza i najdłuższa trasa są podawane jako zakres.<br><hr><br>Una mod di qualità della vita che mostra la lunghezza di una sezione di blocco: la distanza fino al segnale precedente rivolto nella stessa direzione (o fino alla fine del binario). Viene mostrata nel tooltip durante il posizionamento di un segnale e passando il mouse su un segnale esistente. In corrispondenza degli scambi, il percorso più breve e quello più lungo vengono indicati come intervallo.<br><hr><br>閉塞区間の長さを表示する便利なMODです。閉塞区間長とは、同じ進行方向を向いた手前の信号まで（または線路の終端まで）の距離です。信号の設置中や、既存の信号にカーソルを合わせたときにツールチップに表示されます。分岐器がある場合は、最短ルートと最長ルートが範囲で表示されます。<br><hr><br>一款便利模組，可顯示閉塞區間的長度，也就是到同方向前一座號誌（或軌道盡頭）的距離。放置號誌時，以及將滑鼠游標移到現有號誌上時，長度會顯示在提示框中。遇到轉轍器時，會以範圍顯示最短與最長路線的長度。",
+    "localization": {
+        "de": {
+            "description": "Eine Komfort-Mod, die die Länge eines Blockabschnitts anzeigt: die Strecke zurück bis zum vorherigen Signal in derselben Fahrtrichtung (oder bis zum Gleisende). Die Länge erscheint im Tooltip, während du ein Signal platzierst oder mit der Maus über ein bestehendes Signal fährst. An Weichen werden die kürzeste und die längste Route als Bereich angezeigt.",
+            "name": "Tooltips für Blocklängen",
+            "summary": "Zeigt die Länge von Blockabschnitten zwischen Eisenbahnsignalen an."
+        },
+        "es": {
+            "description": "Un mod de calidad de vida que muestra la longitud de un cantón ferroviario: la distancia hasta la señal anterior orientada en el mismo sentido (o hasta el final de la vía). Aparece en la descripción emergente al colocar una señal y al pasar el ratón por encima de una señal existente. En los desvíos, la ruta más corta y la más larga se muestran como un intervalo.",
+            "name": "Indicador de longitud de cantón",
+            "summary": "Muestra la longitud de los cantones entre señales ferroviarias."
+        },
+        "fr": {
+            "description": "Un mod de confort qui affiche la longueur d'un canton ferroviaire : la distance jusqu'au signal précédent orienté dans le même sens (ou jusqu'à la fin de la voie). Elle apparaît dans l'infobulle lors de la pose d'un signal et au survol d'un signal existant. Aux aiguillages, l'itinéraire le plus court et le plus long sont indiqués sous forme de plage.",
+            "name": "Infobulles de longueur de canton",
+            "summary": "Affiche la longueur des cantons entre les signaux ferroviaires."
+        },
+        "it": {
+            "description": "Una mod di qualità della vita che mostra la lunghezza di una sezione di blocco: la distanza fino al segnale precedente rivolto nella stessa direzione (o fino alla fine del binario). Viene mostrata nel tooltip durante il posizionamento di un segnale e passando il mouse su un segnale esistente. In corrispondenza degli scambi, il percorso più breve e quello più lungo vengono indicati come intervallo.",
+            "name": "Lunghezza sezioni di blocco",
+            "summary": "Mostra la lunghezza delle sezioni di blocco tra i segnali ferroviari."
+        },
+        "ja": {
+            "description": "閉塞区間の長さを表示する便利なMODです。閉塞区間長とは、同じ進行方向を向いた手前の信号まで（または線路の終端まで）の距離です。信号の設置中や、既存の信号にカーソルを合わせたときにツールチップに表示されます。分岐器がある場合は、最短ルートと最長ルートが範囲で表示されます。",
+            "name": "閉塞区間長ツールチップ",
+            "summary": "鉄道信号の閉塞区間の長さを表示します。"
+        },
+        "ko": {
+            "description": "폐색 구간의 길이를 표시해 주는 편의성 모드입니다. 같은 방향을 향한 이전 신호기까지(또는 선로 끝까지)의 거리를 보여 줍니다. 신호기를 설치할 때와 기존 신호기에 마우스를 올렸을 때 툴팁에 표시됩니다. 분기기가 있는 경우 가장 짧은 경로와 가장 긴 경로가 범위로 표시됩니다.",
+            "name": "신호 폐색 구간 길이 툴팁",
+            "summary": "철도 신호기 사이의 폐색 구간 길이를 표시합니다."
+        },
+        "nl": {
+            "description": "Een handige mod die de lengte van een blok weergeeft: de afstand terug tot het vorige sein in dezelfde rijrichting (of tot het einde van het spoor). De lengte verschijnt in de tooltip tijdens het plaatsen van een sein en wanneer je met de muis over een bestaand sein beweegt. Bij wissels worden de kortste en de langste route als bereik weergegeven.",
+            "name": "Bloklengte in tooltips",
+            "summary": "Toont de lengte van blokken tussen spoorwegseinen."
+        },
+        "pl": {
+            "description": "Mod usprawniający rozgrywkę, który wyświetla długość odstępu blokowego: odległość do poprzedniego semafora skierowanego w tę samą stronę (lub do końca toru). Jest ona widoczna w podpowiedzi podczas stawiania semafora oraz po najechaniu kursorem na istniejący semafor. Na rozjazdach najkrótsza i najdłuższa trasa są podawane jako zakres.",
+            "name": "Długość odstępów blokowych",
+            "summary": "Wyświetla długość odstępów blokowych między semaforami."
+        },
+        "pt_BR": {
+            "description": "Um mod de qualidade de vida que mostra o comprimento de um bloco ferroviário: a distância até o sinal anterior voltado para o mesmo sentido (ou até o fim da linha). Ele aparece na dica de ferramenta ao posicionar um sinal e ao passar o mouse sobre um sinal existente. Nos AMVs, a rota mais curta e a mais longa são exibidas como um intervalo.",
+            "name": "Exibição de comprimento de bloco",
+            "summary": "Mostra o comprimento dos blocos entre sinais ferroviários."
+        },
+        "ru": {
+            "description": "Удобный мод, который показывает длину блок-участка — расстояние до предыдущего светофора того же направления (или до конца пути). Длина отображается во всплывающей подсказке при установке светофора и при наведении курсора на уже установленный светофор. На стрелках кратчайший и самый длинный маршруты показываются в виде диапазона.",
+            "name": "Подсказки длины блок-участков",
+            "summary": "Показывает длину блок-участков между железнодорожными светофорами."
+        },
+        "zh_CN": {
+            "description": "一款便捷模组，用于显示闭塞分区的长度，即到同方向上一架信号机（或轨道尽头）的距离。放置信号机时，以及将鼠标悬停在已有信号机上时，长度会显示在提示框中。遇到道岔时，会以范围形式显示最短和最长路线的长度。",
+            "name": "信号闭塞分区长度提示",
+            "summary": "显示铁路信号机之间闭塞分区的长度。"
+        },
+        "zh_TW": {
+            "description": "一款便利模組，可顯示閉塞區間的長度，也就是到同方向前一座號誌（或軌道盡頭）的距離。放置號誌時，以及將滑鼠游標移到現有號誌上時，長度會顯示在提示框中。遇到轉轍器時，會以範圍顯示最短與最長路線的長度。",
+            "name": "號誌閉塞區間長度提示",
+            "summary": "顯示鐵路號誌之間閉塞區間的長度。"
+        }
+    },
+    "name": "Signal Block Length Tooltips",
+    "summary": "Displays railway signal block lengths.",
+    "tags": [
+        "Script Mod"
+    ],
+    "url": "https://github.com/ReallyMartin/TF3-Signal-Block-Length-Tooltips"
+}

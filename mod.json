@@ -1,0 +1,11 @@
+{
+  "modId": "signal_block_length",
+  "revision": 1,
+  "severityAdd": "None",
+  "severityRemove": "None",
+  "visible": true,
+  "cosmetic": true,
+  "runScript": {
+    "fileName": ""
+  }
+}

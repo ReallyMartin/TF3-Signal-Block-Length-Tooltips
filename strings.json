@@ -1,0 +1,67 @@
+{
+    "en": {
+        "Block length: %s": "Block length: %s",
+        "%s (no signal behind)": "%s (no signal behind)",
+        "%s - %s": "%s – %s"
+    },
+    "de": {
+        "Block length: %s": "Blocklänge: %s",
+        "%s (no signal behind)": "%s (kein vorheriges Signal)",
+        "%s - %s": "%s – %s"
+    },
+    "fr": {
+        "Block length: %s": "Longueur du canton : %s",
+        "%s (no signal behind)": "%s (aucun signal en amont)",
+        "%s - %s": "%s – %s"
+    },
+    "it": {
+        "Block length: %s": "Lunghezza sezione di blocco: %s",
+        "%s (no signal behind)": "%s (nessun segnale precedente)",
+        "%s - %s": "%s – %s"
+    },
+    "es": {
+        "Block length: %s": "Longitud del cantón: %s",
+        "%s (no signal behind)": "%s (sin señal anterior)",
+        "%s - %s": "%s – %s"
+    },
+    "nl": {
+        "Block length: %s": "Bloklengte: %s",
+        "%s (no signal behind)": "%s (geen voorgaand sein)",
+        "%s - %s": "%s – %s"
+    },
+    "ja": {
+        "Block length: %s": "閉塞区間長：%s",
+        "%s (no signal behind)": "%s（手前に信号なし）",
+        "%s - %s": "%s～%s"
+    },
+    "ko": {
+        "Block length: %s": "폐색 구간 길이: %s",
+        "%s (no signal behind)": "%s (이전 신호기 없음)",
+        "%s - %s": "%s~%s"
+    },
+    "pl": {
+        "Block length: %s": "Długość odstępu blokowego: %s",
+        "%s (no signal behind)": "%s (brak poprzedniego semafora)",
+        "%s - %s": "%s – %s"
+    },
+    "pt_BR": {
+        "Block length: %s": "Comprimento do bloco: %s",
+        "%s (no signal behind)": "%s (sem sinal anterior)",
+        "%s - %s": "%s – %s"
+    },
+    "ru": {
+        "Block length: %s": "Длина блок-участка: %s",
+        "%s (no signal behind)": "%s (нет предыдущего светофора)",
+        "%s - %s": "%s – %s"
+    },
+    "zh_CN": {
+        "Block length: %s": "闭塞分区长度：%s",
+        "%s (no signal behind)": "%s（后方无信号机）",
+        "%s - %s": "%s～%s"
+    },
+    "zh_TW": {
+        "Block length: %s": "閉塞區間長度：%s",
+        "%s (no signal behind)": "%s（後方無號誌）",
+        "%s - %s": "%s～%s"
+    }
+}
