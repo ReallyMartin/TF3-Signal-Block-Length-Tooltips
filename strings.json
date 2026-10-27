@@ -1,67 +1,93 @@
 {
     "en": {
-        "Block length: %s": "Block length: %s",
+        "Block length (behind): %s": "Block length (behind): %s",
+        "Block length (ahead): %s": "Block length (ahead): %s",
         "%s (no signal behind)": "%s (no signal behind)",
+        "%s (no signal ahead)": "%s (no signal ahead)",
         "%s - %s": "%s – %s"
     },
     "de": {
-        "Block length: %s": "Blocklänge: %s",
+        "Block length (behind): %s": "Blocklänge (zurück): %s",
+        "Block length (ahead): %s": "Blocklänge (voraus): %s",
         "%s (no signal behind)": "%s (kein vorheriges Signal)",
+        "%s (no signal ahead)": "%s (kein folgendes Signal)",
         "%s - %s": "%s – %s"
     },
     "fr": {
-        "Block length: %s": "Longueur du canton : %s",
+        "Block length (behind): %s": "Longueur du canton (amont) : %s",
+        "Block length (ahead): %s": "Longueur du canton (aval) : %s",
         "%s (no signal behind)": "%s (aucun signal en amont)",
+        "%s (no signal ahead)": "%s (aucun signal en aval)",
         "%s - %s": "%s – %s"
     },
     "it": {
-        "Block length: %s": "Lunghezza sezione di blocco: %s",
+        "Block length (behind): %s": "Lunghezza sezione di blocco (indietro): %s",
+        "Block length (ahead): %s": "Lunghezza sezione di blocco (avanti): %s",
         "%s (no signal behind)": "%s (nessun segnale precedente)",
+        "%s (no signal ahead)": "%s (nessun segnale successivo)",
         "%s - %s": "%s – %s"
     },
     "es": {
-        "Block length: %s": "Longitud del cantón: %s",
+        "Block length (behind): %s": "Longitud del cantón (atrás): %s",
+        "Block length (ahead): %s": "Longitud del cantón (adelante): %s",
         "%s (no signal behind)": "%s (sin señal anterior)",
+        "%s (no signal ahead)": "%s (sin señal siguiente)",
         "%s - %s": "%s – %s"
     },
     "nl": {
-        "Block length: %s": "Bloklengte: %s",
+        "Block length (behind): %s": "Bloklengte (terug): %s",
+        "Block length (ahead): %s": "Bloklengte (vooruit): %s",
         "%s (no signal behind)": "%s (geen voorgaand sein)",
+        "%s (no signal ahead)": "%s (geen volgend sein)",
         "%s - %s": "%s – %s"
     },
     "ja": {
-        "Block length: %s": "閉塞区間長：%s",
+        "Block length (behind): %s": "閉塞区間長（後方）：%s",
+        "Block length (ahead): %s": "閉塞区間長（前方）：%s",
         "%s (no signal behind)": "%s（手前に信号なし）",
+        "%s (no signal ahead)": "%s（前方に信号なし）",
         "%s - %s": "%s～%s"
     },
     "ko": {
-        "Block length: %s": "폐색 구간 길이: %s",
+        "Block length (behind): %s": "폐색 구간 길이 (후방): %s",
+        "Block length (ahead): %s": "폐색 구간 길이 (전방): %s",
         "%s (no signal behind)": "%s (이전 신호기 없음)",
+        "%s (no signal ahead)": "%s (다음 신호기 없음)",
         "%s - %s": "%s~%s"
     },
     "pl": {
-        "Block length: %s": "Długość odstępu blokowego: %s",
+        "Block length (behind): %s": "Długość odstępu blokowego (wstecz): %s",
+        "Block length (ahead): %s": "Długość odstępu blokowego (naprzód): %s",
         "%s (no signal behind)": "%s (brak poprzedniego semafora)",
+        "%s (no signal ahead)": "%s (brak następnego semafora)",
         "%s - %s": "%s – %s"
     },
     "pt_BR": {
-        "Block length: %s": "Comprimento do bloco: %s",
+        "Block length (behind): %s": "Comprimento do bloco (atrás): %s",
+        "Block length (ahead): %s": "Comprimento do bloco (à frente): %s",
         "%s (no signal behind)": "%s (sem sinal anterior)",
+        "%s (no signal ahead)": "%s (sem próximo sinal)",
         "%s - %s": "%s – %s"
     },
     "ru": {
-        "Block length: %s": "Длина блок-участка: %s",
+        "Block length (behind): %s": "Длина блок-участка (позади): %s",
+        "Block length (ahead): %s": "Длина блок-участка (впереди): %s",
         "%s (no signal behind)": "%s (нет предыдущего светофора)",
+        "%s (no signal ahead)": "%s (нет следующего светофора)",
         "%s - %s": "%s – %s"
     },
     "zh_CN": {
-        "Block length: %s": "闭塞分区长度：%s",
+        "Block length (behind): %s": "闭塞分区长度（后方）：%s",
+        "Block length (ahead): %s": "闭塞分区长度（前方）：%s",
         "%s (no signal behind)": "%s（后方无信号机）",
+        "%s (no signal ahead)": "%s（前方无信号机）",
         "%s - %s": "%s～%s"
     },
     "zh_TW": {
-        "Block length: %s": "閉塞區間長度：%s",
+        "Block length (behind): %s": "閉塞區間長度（後方）：%s",
+        "Block length (ahead): %s": "閉塞區間長度（前方）：%s",
         "%s (no signal behind)": "%s（後方無號誌）",
+        "%s (no signal ahead)": "%s（前方無號誌）",
         "%s - %s": "%s～%s"
     }
 }

@@ -1,6 +1,6 @@
 {
   "modId": "signal_block_length",
-  "revision": 1,
+  "revision": 2,
   "severityAdd": "None",
   "severityRemove": "None",
   "visible": true,

@@ -80,11 +80,13 @@ local function wrapProposalStrings(actionParams)
 
 	local wrapper = function(proposal, proposalData)
 		local strings = original and original(proposal, proposalData) or {}
-		local ok, line = pcall(block_length.describe, proposal, proposalData)
+		local ok, lines = pcall(block_length.describe, proposal, proposalData)
 		if not ok then
-			block_length.warn(line)
-		elseif line then
-			strings[#strings + 1] = line
+			block_length.warn(lines)
+		elseif lines then
+			for _, line in ipairs(lines) do
+				strings[#strings + 1] = line
+			end
 		end
 		return strings
 	end

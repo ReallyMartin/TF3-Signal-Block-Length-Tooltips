@@ -1,6 +1,7 @@
 -- Computes signal block lengths: the distance from a signal back along the
 -- track (against the direction the signal applies to) to the previous signal
--- applying to the same direction, or to the end of the track.
+-- applying to the same direction, and forward along the track to the next
+-- one, or to the end of the track.
 --
 -- At switches every branch a train could come from is followed, so the result
 -- may be a range (shortest - longest route). Crossings without a switch are
@@ -310,6 +311,7 @@ local function makeContext(proposal)
 		worldCurves = cache.curves,      -- world edges (persistent)
 		signalInfos = cache.signalInfos, -- signals are always world entities (persistent)
 		ownSignal = nil, -- the signal being measured from; ignored during the walk
+		forward = false, -- walk direction (see walk)
 		steps = 0,
 		memo = nil,      -- walk results beyond the proposal (see walk)
 		inMemo = false,
@@ -484,8 +486,10 @@ end
 
 local continueAt -- defined below; walk and continueAt call each other
 
--- Walks backwards on `edge`, starting at arc length `s`, against trains that
--- travel in direction `dir` (+1: node0 -> node1). `acc` is the distance so far.
+-- Walks on `edge`, starting at arc length `s`, for the block of a signal
+-- applying to trains that travel in direction `dir` (+1: node0 -> node1):
+-- backwards (against `dir`) to the previous such signal, or forwards (along
+-- `dir`) to the next one if ctx.forward is set. `acc` is the distance so far.
 -- Appends { length, kind = "signal"|"end"|"loop"|"limit" } per route to `results`.
 local function walk(ctx, edge, s, dir, acc, onPath, results)
 	if ctx.added[edge] then
@@ -512,13 +516,16 @@ local function walk(ctx, edge, s, dir, acc, onPath, results)
 		return
 	end
 
-	-- Nearest signal behind us applying to the same direction.
+	-- Direction of the walk on this edge: +1 towards node1, -1 towards node0.
+	local move = ctx.forward and dir or -dir
+
+	-- Nearest signal in walk direction applying to the same travel direction.
 	local best
 	for _, sig in ipairs(signals) do
 		if sig.dir == dir and sig.entity ~= ctx.ownSignal then
-			if dir == 1 and sig.s < s - EPS and (best == nil or sig.s > best) then
+			if move == -1 and sig.s < s - EPS and (best == nil or sig.s > best) then
 				best = sig.s
-			elseif dir == -1 and sig.s > s + EPS and (best == nil or sig.s < best) then
+			elseif move == 1 and sig.s > s + EPS and (best == nil or sig.s < best) then
 				best = sig.s
 			end
 		end
@@ -528,10 +535,10 @@ local function walk(ctx, edge, s, dir, acc, onPath, results)
 		return
 	end
 
-	acc = acc + (dir == 1 and s or (curve.length - s))
-	local node = dir == 1 and curve.node0 or curve.node1
+	acc = acc + (move == -1 and s or (curve.length - s))
+	local node = move == -1 and curve.node0 or curve.node1
 	-- direction in which we leave this edge through `node`
-	local back = dir == 1 and neg(curve.dir0) or curve.dir1
+	local back = move == -1 and neg(curve.dir0) or curve.dir1
 
 	-- Leaving the proposal into the world: everything from here on is the
 	-- same for every frame while the signal is dragged along the same edge,
@@ -559,7 +566,8 @@ local function walk(ctx, edge, s, dir, acc, onPath, results)
 end
 
 -- Continues the walk at `node`, which `edge` (walk key `key`) leaves in
--- direction `back`, into every track a train could have come from.
+-- direction `back`, into every track a train could have come from (or, when
+-- walking forwards, could go to).
 function continueAt(ctx, edge, key, node, back, acc, onPath, results)
 	-- All tracks at the node with the direction they leave it in.
 	local from = { edge = edge, out = neg(back) }
@@ -579,12 +587,9 @@ function continueAt(ctx, edge, key, node, back, acc, onPath, results)
 		local target = tracks[i]
 		if dot2(target.out, back) > MIN_CONTINUE_COS and not isCrossingTrack(tracks, from, target) then
 			local nc = target.curve
-			local nextDir, nextS
-			if nc.node0 == node then
-				nextDir, nextS = -1, 0
-			else
-				nextDir, nextS = 1, nc.length
-			end
+			local move = nc.node0 == node and 1 or -1
+			local nextS = move == 1 and 0 or nc.length
+			local nextDir = ctx.forward and move or -move
 			continued = true
 			walk(ctx, target.edge, nextS, nextDir, acc, onPath, results)
 		end
@@ -618,9 +623,12 @@ local function formatLength(m)
 	return string.format("%d m", math.floor(m + 0.5))
 end
 
--- Walks back from arc length `s` on `edge` for a signal applying to travel
--- direction `dir` and returns the tooltip line.
-local function measure(ctx, edge, s, dir)
+-- Walks from arc length `s` on `edge` for a signal applying to travel
+-- direction `dir`, backwards or `forward`, and returns the tooltip line.
+-- `memo` holds walk results beyond the proposal for this walk direction (may
+-- be nil, see walk).
+local function measureOne(ctx, edge, s, dir, forward, memo)
+	ctx.forward, ctx.memo, ctx.steps = forward, memo, 0
 	local results = {}
 	walk(ctx, edge, s, dir, 0, {}, results)
 
@@ -632,8 +640,8 @@ local function measure(ctx, edge, s, dir)
 		hasSignal = hasSignal or r.kind == "signal"
 		hasLimit = hasLimit or r.kind == "limit"
 	end
-	log("edge=%s s=%.1f dir=%d routes=%d steps=%d min=%.1f max=%.1f",
-		tostring(edge), s, dir, #results, ctx.steps, minLen, maxLen)
+	log("edge=%s s=%.1f dir=%d forward=%s routes=%d steps=%d min=%.1f max=%.1f",
+		tostring(edge), s, dir, tostring(forward), #results, ctx.steps, minLen, maxLen)
 
 	-- Translated strings are format templates (see strings.json), so each
 	-- language controls its own punctuation and word order.
@@ -646,10 +654,26 @@ local function measure(ctx, edge, s, dir)
 	if hasLimit then
 		text = "> " .. text
 	end
+	if forward then
+		if not hasSignal then
+			text = string.format(_("%s (no signal ahead)"), text)
+		end
+		return string.format(_("Block length (ahead): %s"), text)
+	end
 	if not hasSignal then
 		text = string.format(_("%s (no signal behind)"), text)
 	end
-	return string.format(_("Block length: %s"), text)
+	return string.format(_("Block length (behind): %s"), text)
+end
+
+-- Returns the tooltip lines for a signal at arc length `s` on `edge` applying
+-- to travel direction `dir`: the block behind it, then the block ahead.
+-- `memos` = { behind, ahead } (see measureOne), or nil.
+local function measure(ctx, edge, s, dir, memos)
+	return {
+		measureOne(ctx, edge, s, dir, false, memos and memos.behind),
+		measureOne(ctx, edge, s, dir, true, memos and memos.ahead),
+	}
 end
 
 ---------------------------------------------------------------------------
@@ -706,10 +730,10 @@ local function newSignalPosition(edgeObject)
 	return nil
 end
 
-local lastProposal = { key = nil, text = nil }
+local lastProposal = { key = nil, lines = nil }
 local proposalMemo = { key = nil, entries = nil }
 
--- Returns the tooltip line for a construction proposal, or nil if the
+-- Returns the tooltip lines for a construction proposal, or nil if the
 -- proposal does not place a signal.
 function block_length.describe(proposal, proposalData)
 	if not (proposal and proposal.proposal) then
@@ -750,7 +774,7 @@ function block_length.describe(proposal, proposalData)
 	-- reuse the last result for the same replaced edge, position and side.
 	local key = string.format("%.1f:%.1f:%d:", pos.x, pos.y, dir) .. removed
 	if key == lastProposal.key then
-		return lastProposal.text
+		return lastProposal.lines
 	end
 
 	-- Walk results beyond the replaced edge, reused while the signal is
@@ -758,19 +782,18 @@ function block_length.describe(proposal, proposalData)
 	-- building anything else first moves the proposal off it, so the stored
 	-- results never outlive a change made by the player.
 	if proposalMemo.key ~= removed then
-		proposalMemo.key, proposalMemo.entries = removed, {}
+		proposalMemo.key, proposalMemo.entries = removed, { behind = {}, ahead = {} }
 	end
-	ctx.memo = proposalMemo.entries
 
 	local s = project(curve, pos)
-	local text = measure(ctx, edge, s, dir)
-	lastProposal.key, lastProposal.text = key, text
-	return text
+	local lines = measure(ctx, edge, s, dir, proposalMemo.entries)
+	lastProposal.key, lastProposal.lines = key, lines
+	return lines
 end
 
 local existingCache = { entity = nil, time = -math.huge, text = nil }
 
--- Returns the tooltip line for an existing signal entity, or nil for anything
+-- Returns the tooltip text for an existing signal entity, or nil for anything
 -- else (including waypoints). The result is cached briefly because the hover
 -- tooltip asks every frame.
 function block_length.describeSignal(entity)
@@ -792,7 +815,7 @@ function block_length.describeSignal(entity)
 		if curve then
 			local s, trackDir = project(curve, info.pos)
 			local dir = dot2(info.facing, trackDir) >= 0 and 1 or -1
-			text = measure(ctx, edge, s, dir)
+			text = table.concat(measure(ctx, edge, s, dir), "\n")
 		end
 	end
 
